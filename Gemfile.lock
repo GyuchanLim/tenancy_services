@@ -318,6 +318,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  dotenv
   httparty
   kamal
   puma (>= 5.0)
