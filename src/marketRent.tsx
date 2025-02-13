@@ -1,21 +1,8 @@
-import { useQuery } from '@tanstack/react-query'
-
 import './App.css'
-
-const callTenancyRequestRent = async () => {
-    const response = await fetch(
-        `http://localhost:3000/api/v1/rent`,
-    )
-
-    return await response.json()
-}
+import { callTenancyRequestRent } from '@hooks/callTenancyRequestRent'
 
 function MarketRent() {
-    const { data, error, isLoading } = useQuery({
-        queryKey: ['testing'],
-        queryFn: callTenancyRequestRent,
-        enabled: true,
-    })
+    const { data, error, isLoading } = callTenancyRequestRent()
 
     return (
         <>
