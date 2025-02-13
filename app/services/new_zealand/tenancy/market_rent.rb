@@ -1,6 +1,6 @@
 module NewZealand
   module Tenancy
-    class RequestRent
+    class MarketRent
       def initialize
         @uri = ENV["TENANCY_MARKET_RENT_URI"]
         @auth = {

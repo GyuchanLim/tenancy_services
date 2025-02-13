@@ -7,10 +7,12 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "example.com"
+    # regular expressions can be used here
+    origins "http://localhost:5173"
 
-    resource "*",
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    # you can put if statements here to make it work like ruby
+    resource "/api/*", # * <- everything
+      headers: :any,  # :headers => 'x-domain-token'
+      methods: [:get] # :post, :put, :patch, :delete, :options, :head
   end
 end
