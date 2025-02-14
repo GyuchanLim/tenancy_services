@@ -4,9 +4,9 @@ module NewZealand
       def initialize
         @uri = ENV["TENANCY_MARKET_RENT_URI"]
         @auth = {
-          'Content-Type' => 'application/json',
+          "Content-Type" => "application/json",
           "Cache-Control" => "no-cache",
-          "Ocp-Apim-Subscription-Key": ENV['TENANCY_MARKET_RENT_PRIMARY_KEY']
+          "Ocp-Apim-Subscription-Key": ENV["TENANCY_MARKET_RENT_PRIMARY_KEY"]
         }
       end
 

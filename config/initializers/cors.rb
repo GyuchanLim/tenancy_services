@@ -13,6 +13,6 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     # you can put if statements here to make it work like ruby
     resource "/api/*", # * <- everything
       headers: :any,  # :headers => 'x-domain-token'
-      methods: [:get] # :post, :put, :patch, :delete, :options, :head
+      methods: [ :get ] # :post, :put, :patch, :delete, :options, :head
   end
 end
