@@ -11,6 +11,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@hooks': '/src/hooks/',
+      '@components': '/src/components/',
     },
   },
   server: {
