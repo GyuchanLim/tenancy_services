@@ -1,5 +1,3 @@
-import '../../stylesheets/main.css'
-
 const Footer = () => {
   return (
     <footer>
