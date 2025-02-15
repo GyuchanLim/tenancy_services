@@ -1,20 +1,17 @@
 const Footer = () => {
   return (
     <footer>
-      <div>
-        <div>
-          To help people find their perfect homes.
-        </div>
-        <div>
-          To help myself enjoy the process of success.
-        </div>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
+      <div id="container" className="flex p-10 border rounded-xl justify-between">
+        <span id="links" className="font-mono text-xl text-gray-600">
+          &copy;2025
+        </span>
+        <span className="font-mono text-xl text-gray-600">
+          Sourced from <a className="text-gray-400" href="https://portal.api.business.govt.nz/">MBIE</a>
+        </span>
       </div>
     </footer>
   )
 }
-  
+
 export default Footer;
   
