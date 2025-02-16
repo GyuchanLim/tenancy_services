@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :rent
+      resources :rent do
+        member do
+          put "statistics"
+        end
+      end
     end
   end
   # Defines the root path route ("/")
