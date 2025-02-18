@@ -7,9 +7,15 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :rent do
+      resources :rent, only: [:index] do
         member do
           put "statistics"
+        end
+      end
+
+      resources :region, only: [:index] do
+        member do
+          get :show, to: "region#suburb"
         end
       end
     end

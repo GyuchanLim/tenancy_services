@@ -11,7 +11,7 @@ module Tenancy
       data = client.area_definitions('IMR2017')
       return error_response unless data.success?
 
-      format(data["items"])
+      area_region_hash = format(data["items"])
     end
 
     private
@@ -20,7 +20,7 @@ module Tenancy
       regions_hash = {}
 
       rows.each do |row|
-        area, regions = row["label"].split(" - ")
+        area, regions = row["label"].downcase.split(" - ")
         if regions_hash[area]
           regions_hash[area].concat(regions.split("/"))
         else
