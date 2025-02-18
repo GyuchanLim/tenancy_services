@@ -1,10 +1,10 @@
 import Container from '@components/layout/container'
-import RadioButton from '@components/common/radioButtons'
-import CheckBox from '@components/common/checkBoxes'
-import { callTenancyRequestRent } from '@hooks/callTenancyRequestRent'
+// import { callTenancyRequestRent } from '@hooks/callTenancyRequestRent'
+// import { callTenancyRegion } from '@hooks/callTenancyRegion'
+import { callTenancySuburb } from '@hooks/callTenancySuburb'
 
 function MarketRent() {
-	const { data, error, isLoading } = callTenancyRequestRent()
+	const { data, error, isLoading } = callTenancySuburb('hehe')
 
 	return (
 		<Container>
@@ -18,8 +18,6 @@ function MarketRent() {
 					<p className="text-xl">Data Loaded</p> 
 					// <pre>{JSON.stringify(data, null, 2)}</pre>
 				}
-				<RadioButton radioButtonOptions={['Huey', 'Dewey', 'Louie', 'Donald', 'Mickey']} />
-				<CheckBox radioButtonOptions={['Huey', 'Dewey', 'Louie', 'Donald', 'Mickey']} />
 				{/* Area interested in? */}
 				{/* Property type? */}
 				{/* Information to know? (optional) */}
