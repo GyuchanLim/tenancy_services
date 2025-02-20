@@ -1,10 +1,10 @@
 import Container from '@components/layout/container'
 // import { callTenancyRequestRent } from '@hooks/callTenancyRequestRent'
 // import { callTenancyRegion } from '@hooks/callTenancyRegion'
-import { callTenancySuburb } from '@hooks/callTenancySuburb'
+import useCallTenancySuburb from '@hooks/useCallTenancySuburb'
 
 function MarketRent() {
-	const { data, error, isLoading } = callTenancySuburb('auckland')
+	const { data, error, isLoading } = useCallTenancySuburb('auckland')
 
 	return (
 		<Container>
