@@ -1,4 +1,4 @@
-import Container from '@components/layout/container'
+import { Container } from '@components/layout'
 // import { callTenancyRequestRent } from '@hooks/callTenancyRequestRent'
 // import { callTenancyRegion } from '@hooks/callTenancyRegion'
 import useCallTenancySuburb from '@hooks/useCallTenancySuburb'

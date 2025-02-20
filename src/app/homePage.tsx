@@ -1,11 +1,11 @@
-import Container from '@components/layout/container'
+// import Container from '@components/layout/container'
 
 function HomePage() {
 
 	return (
-		<Container>
-      
-		</Container>
+		// <Container>
+		// </Container>
+		<></>
 	)
 }
 
