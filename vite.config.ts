@@ -12,7 +12,8 @@ export default defineConfig({
     alias: {
       '@hooks': '/src/hooks/',
       '@components': '/src/components/',
-      '@stylesheets': '/src/stylesheets/'
+      '@stylesheets': '/src/stylesheets/',
+      "@pages": '/src/app/pages/',
     },
   },
   server: {
