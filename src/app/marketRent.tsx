@@ -4,7 +4,7 @@ import Container from '@components/layout/container'
 import { callTenancySuburb } from '@hooks/callTenancySuburb'
 
 function MarketRent() {
-	const { data, error, isLoading } = callTenancySuburb('hehe')
+	const { data, error, isLoading } = callTenancySuburb('auckland')
 
 	return (
 		<Container>
