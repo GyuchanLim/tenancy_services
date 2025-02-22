@@ -3,7 +3,7 @@ import useCallTenancyRegion from '@hooks/useCallTenancyRegion';
 
 const MarketRentSearchForm: React.FC = () => {
   const [location, setLocation] = useState('');
-  const [bedrooms, setBedrooms] = useState(0);
+  const [bedrooms, setBedrooms] = useState(1);
   const mutation = useCallTenancyRegion();
 
   const handleSearch = (e: React.FormEvent) => {

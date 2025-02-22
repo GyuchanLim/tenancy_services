@@ -1,7 +1,6 @@
 import { Container } from '@components/layout'
-// import { callTenancyRequestRent } from '@hooks/callTenancyRequestRent'
-// import { callTenancyRegion } from '@hooks/callTenancyRegion'
 import useCallTenancySuburb from '@hooks/useCallTenancySuburb'
+import MarketRentSearchForm from "@components/MarketRentSearchForm";
 
 function MarketRent() {
 	const { data, error, isLoading } = useCallTenancySuburb('auckland')
@@ -18,10 +17,8 @@ function MarketRent() {
         <p className="text-xl">Data Loaded</p> 
         // <pre>{JSON.stringify(data, null, 2)}</pre>
       }
-      {/* Area interested in? */}
-      {/* Property type? */}
-      {/* Information to know? (optional) */}
-      {/* display result */}
+      <h1>Market Rent</h1>
+      <MarketRentSearchForm />
 		</Container>
 	)
 }
