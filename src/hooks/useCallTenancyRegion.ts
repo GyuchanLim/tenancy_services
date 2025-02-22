@@ -1,10 +1,15 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, UseMutationResult } from '@tanstack/react-query';
 
-const useCallTenancyRegion = () => {
-  return useMutation({
-    mutationFn: async (data: { location: string; bedrooms: number }) => {
-      const response = await fetch('/api/tenancy-region', { // # /api/v1/rent/:id/statistics
-        method: 'PUT',
+type Statistics = {
+  location: string;
+  bedrooms: number;
+};
+
+const useCallTenancyRegion = (): UseMutationResult<Statistics[], unknown, Statistics> => {
+  return useMutation<Statistics[], unknown, Statistics>({
+    mutationFn: async (data: Statistics) => {
+      const response = await fetch('http://localhost:3000/api/v1/statistics/search', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -14,7 +19,6 @@ const useCallTenancyRegion = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
       return response.json();
     }
   });

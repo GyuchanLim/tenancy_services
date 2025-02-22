@@ -12,15 +12,6 @@ class Api::V1::RegionController < ApplicationController
     render json: { data: fetch_regions[region] }
   end
 
-  def statistics
-    @client = Api::Tenancy::Client.new
-    # Todo Fetch this
-    body = {"period-ending": "2020-01", "num-months": 3, "area-definition": "IMR2017"}
-
-    statistics = @client.statistics(body)
-    render json: { data: statistics }
-  end
-
   private
 
   attr_reader :fetch_regions
