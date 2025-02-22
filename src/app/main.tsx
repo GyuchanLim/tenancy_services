@@ -12,8 +12,8 @@ createRoot(document.getElementById('root')!).render(
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path="/tenancy" element={<TenancyPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/tenancy" element={<TenancyPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
