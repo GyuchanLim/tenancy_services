@@ -19,7 +19,7 @@ module Api
         self.class.get("#{@uri}/area-definitions/#{area}", headers: @auth)
       end
 
-      def statistics(query)
+      def statistic(query)
         self.class.get("#{@uri}/statistics?#{format_simple_query(query)}", headers: @auth)
       end
 

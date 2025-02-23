@@ -8,7 +8,7 @@ type Statistics = {
 const useCallTenancyRegion = (): UseMutationResult<Statistics[], unknown, Statistics> => {
   return useMutation<Statistics[], unknown, Statistics>({
     mutationFn: async (data: Statistics) => {
-      const response = await fetch('http://localhost:3000/api/v1/statistics/search', {
+      const response = await fetch('http://localhost:3000/api/v1/statistic/search', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
