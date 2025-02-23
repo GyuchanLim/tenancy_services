@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useAtom } from 'jotai';
 import useCallTenancyRegion from '@hooks/useCallTenancyRegion';
+import { locationAtom, bedroomAtom } from './searchParamsAtoms';
 
 const MarketRentSearchForm: React.FC = () => {
-  const [location, setLocation] = useState('auckland');
-  const [bedrooms, setBedrooms] = useState(1);
+  const [location, setLocation] = useAtom(locationAtom)
+  const [bedrooms, setBedrooms] = useAtom(bedroomAtom)
 
   const mutation = useCallTenancyRegion();
 
@@ -29,10 +31,10 @@ const MarketRentSearchForm: React.FC = () => {
         <div>
           <label htmlFor="bedrooms">Number of Bedrooms:</label>
           <input
-            type="number"
+            type="text"
             id="bedrooms"
             value={bedrooms}
-            onChange={(e) => setBedrooms(Number(e.target.value))}
+            onChange={(e) => setBedrooms(e.target.value)}
             min="1"
           />
         </div>
