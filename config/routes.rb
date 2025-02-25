@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      post 'statistic/search', to: 'statistic#search'
-      resources :rent, only: [:index]
-      resources :region, only: [:index] do
+      post "statistic/search", to: "statistic#search"
+      resources :rent, only: [ :index ]
+      resources :region, only: [ :index ] do
         member do
           get :show, to: "region#suburb"
         end

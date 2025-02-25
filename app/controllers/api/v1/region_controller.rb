@@ -1,5 +1,5 @@
 class Api::V1::RegionController < ApplicationController
-  before_action :fetch_regions, only: [:index, :suburb]
+  before_action :fetch_regions, only: [ :index, :suburb ]
 
   def index
     render json: { data: fetch_regions.keys }

@@ -1,6 +1,5 @@
 module Tenancy
   class FetchRegions
-
     attr_reader :client
 
     def initialize
@@ -8,7 +7,8 @@ module Tenancy
     end
 
     def call
-      data = client.area_definitions('IMR2017')
+      # Think about what area definitions to use, can we use multiple here?
+      data = client.area_definitions("IMR2017")
       return error_response unless data.success?
 
       area_region_hash = format(data["items"])
