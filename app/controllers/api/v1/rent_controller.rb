@@ -5,7 +5,4 @@ class Api::V1::RentController < ApplicationController
 
     render json: { data: area_definitions }
   end
-
-  def statistics
-  end
 end
