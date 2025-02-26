@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Footer, Navbar } from '@components/layout'
-import { HomePage, TenancyPage } from '@pages/index'
+import { HomePage, MarketRent } from '@pages/index'
 import '@stylesheets/main.css'
 
 createRoot(document.getElementById('root')!).render(
@@ -13,7 +13,7 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/tenancy" element={<TenancyPage />} />
+          <Route path="/market_rent" element={<MarketRent />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
