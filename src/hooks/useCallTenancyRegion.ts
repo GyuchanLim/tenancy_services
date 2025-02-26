@@ -3,6 +3,7 @@ import { useMutation, UseMutationResult } from '@tanstack/react-query';
 type Statistics = {
   location: string;
   bedrooms: string;
+  dwellingType: string;
 };
 
 const useCallTenancyRegion = (): UseMutationResult<Statistics[], unknown, Statistics> => {

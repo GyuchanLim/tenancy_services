@@ -1,17 +1,18 @@
 import React from 'react';
 import { useAtom } from 'jotai';
 import useCallTenancyRegion from '@hooks/useCallTenancyRegion';
-import { locationAtom, bedroomAtom } from './searchParamsAtoms';
+import { locationAtom, bedroomAtom, dwellingTypeAtom } from './searchParamsAtoms';
 
 const MarketRentSearchForm: React.FC = () => {
   const [location, setLocation] = useAtom(locationAtom)
   const [bedrooms, setBedrooms] = useAtom(bedroomAtom)
+  const [dwellingType, setDwellingType] = useAtom(dwellingTypeAtom)
 
   const mutation = useCallTenancyRegion();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    mutation.mutate({ location, bedrooms });
+    mutation.mutate({ location, bedrooms, dwellingType });
   };
 
   return (
@@ -35,6 +36,16 @@ const MarketRentSearchForm: React.FC = () => {
             id="bedrooms"
             value={bedrooms}
             onChange={(e) => setBedrooms(e.target.value)}
+            min="1"
+          />
+        </div>
+        <div>
+          <label htmlFor="bedrooms">Dwelling type:</label>
+          <input
+            type="text"
+            id="dwellingType"
+            value={dwellingType}
+            onChange={(e) => setDwellingType(e.target.value)}
             min="1"
           />
         </div>

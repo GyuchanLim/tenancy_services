@@ -5,8 +5,7 @@ class Api::V1::StatisticController < ApplicationController
     body = statistic_params_hash.merge({
       "period-ending": "2024-12",
       "num-months": 20,
-      "area-definition": "SAU2019",
-      "dwelling-type": "House"
+      "area-definition": "SAU2019"
     })
 
     statistic = @client.statistic(body)
@@ -16,11 +15,12 @@ class Api::V1::StatisticController < ApplicationController
   private
 
   def statistic_params_hash
-    params.require(:statistic).permit(:location, :bedrooms)
+    params.require(:statistic).permit(:location, :bedrooms, :dwellingType)
 
     {
       "area-labels": params[:location],
-      "num-bedrooms": params[:bedrooms]
+      "num-bedrooms": params[:bedrooms],
+      "dwelling-type": params[:dwellingType]
     }
   end
 end
