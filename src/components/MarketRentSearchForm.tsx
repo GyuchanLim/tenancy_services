@@ -31,23 +31,31 @@ const MarketRentSearchForm: React.FC = () => {
         </div>
         <div>
           <label htmlFor="bedrooms">Number of Bedrooms:</label>
-          <input
-            type="text"
+          <select 
+            name="bedrooms"
             id="bedrooms"
-            value={bedrooms}
             onChange={(e) => setBedrooms(e.target.value)}
-            min="1"
-          />
+          >
+            <option value="5+">5+</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
         </div>
         <div>
-          <label htmlFor="bedrooms">Dwelling type:</label>
-          <input
-            type="text"
+          <label htmlFor="dwellingType">Dwelling type:</label>
+          <select 
+            name="dwellingType"
             id="dwellingType"
-            value={dwellingType}
             onChange={(e) => setDwellingType(e.target.value)}
-            min="1"
-          />
+          >
+            <option value="Apartment">Apartment</option>
+            <option value="BoardingHouse">Boarding House</option>
+            <option value="Flat">Flat</option>
+            <option value="House">House</option>
+            <option value="Room">Room</option>
+          </select>
         </div>
         <button type="submit">Search</button>
 
