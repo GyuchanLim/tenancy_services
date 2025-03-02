@@ -15,12 +15,12 @@ class Api::V1::StatisticController < ApplicationController
   private
 
   def statistic_params_hash
-    params.require(:statistic).permit(:location, :bedrooms, :dwellingType)
+    params.require(:statistic).permit(:location, bedrooms: [], dwellingType: [])
 
     {
       "area-labels": params[:location],
       "num-bedrooms": params[:bedrooms],
-      "dwelling-type": params[:dwellingType]
+      "dwelling-type": params[:dwellingType].join(",")
     }
   end
 end
