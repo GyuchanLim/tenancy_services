@@ -15,4 +15,4 @@ body = statistic_params_hash.merge({
 
 result = client.statistic(body)
 
-pp result
+puts result

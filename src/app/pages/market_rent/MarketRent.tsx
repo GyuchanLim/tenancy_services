@@ -5,7 +5,7 @@ import useCallTenancyRegion from '@hooks/useCallTenancyRegion';
 import { locationAtom, bedroomAtom, dwellingTypeAtom } from '@components/tenancy/searchParamsAtoms';
 
 function MarketRent() {
-	const [location, setLocation] = useAtom(locationAtom)
+  const [location, setLocation] = useAtom(locationAtom)
   const [bedrooms, setBedrooms] = useAtom<string[]>(bedroomAtom)
   const [dwellingType, setDwellingType] = useAtom<string[]>(dwellingTypeAtom)
 
@@ -17,8 +17,8 @@ function MarketRent() {
     mutation.mutate({ location, bedrooms, dwellingType });
   };
 
-	return (
-		<Container>
+  return (
+    <Container>
       <h1>Market Rent</h1>
       <div>
         <h2>Search Market Rent Data</h2>
@@ -89,8 +89,8 @@ function MarketRent() {
           )}
         </form>
       </div>
-		</Container>
-	)
+    </Container>
+  )
 }
 
 export default MarketRent
