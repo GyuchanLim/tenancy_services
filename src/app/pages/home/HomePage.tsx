@@ -1,7 +1,6 @@
 import { Container } from "@components/layout"
 
 function HomePage() {
-
   return (
     <Container>
       <div>
