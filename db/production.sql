@@ -1,0 +1,4 @@
+CREATE DATABASE tenancy_services_production;
+CREATE DATABASE tenancy_services_production_cable;
+CREATE DATABASE tenancy_services_production_schema;
+CREATE DATABASE tenancy_services_production_queue;
