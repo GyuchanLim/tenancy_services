@@ -7,12 +7,24 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    # regular expressions can be used here
-    origins "http://localhost:5173"
+    # Use different origins for development and production
+    origins = if Rails.env.production?
+                # Replace with your production frontend URL
+                [ "https://soom-gyeol.com",
+                  "https://www.soom-gyeol.com",
+                  "https://170.64.173.251" ]
+    else
+                # Development frontend URL
+                [ "http://localhost:5173" ]
+    end
+
+    # Allow API requests from the specified origins
+    origins(*origins)
 
     # you can put if statements here to make it work like ruby
+    # Allow all headers and common HTTP methods
     resource "/api/*", # * <- everything
-      headers: :any,  # :headers => 'x-domain-token'
+      headers: :any,
       methods: [ :get, :post ] # :post, :put, :patch, :delete, :options, :head
   end
 end
