@@ -26,7 +26,7 @@ module Api
       private
 
       def format_simple_query(query)
-        query_string = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        query.map { |k, v| "#{k}=#{v}" }.join("&")
       end
     end
   end
