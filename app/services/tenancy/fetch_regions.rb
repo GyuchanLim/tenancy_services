@@ -1,5 +1,5 @@
 module Tenancy
-  class FetchRegions
+  class FetchRegions < ApplicationService
     attr_reader :client
 
     def initialize
