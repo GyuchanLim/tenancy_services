@@ -1,4 +1,4 @@
-class Api::V1::StatisticController < ApplicationController
+class Api::V1::StatisticController < ApiController
   def search
     @client = Api::Tenancy::Client.new
 
@@ -9,6 +9,7 @@ class Api::V1::StatisticController < ApplicationController
     })
 
     statistic = @client.statistic(body)
+
     render json: { data: statistic }
   end
 

@@ -1,4 +1,4 @@
-class Api::V1::RegionController < ApplicationController
+class Api::V1::RegionController < ApiController
   before_action :fetch_regions, only: [ :index, :suburb ]
 
   def index
