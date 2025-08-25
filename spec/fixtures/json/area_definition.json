@@ -1,0 +1,58 @@
+[
+  {
+    "label": "regional-council-2016",
+    "code": "REGC2016"
+  },
+  {
+    "label": "regional-council-2019",
+    "code": "REGC2019"
+  },
+  {
+    "label": "territorial-authority-2016",
+    "code": "TA2016"
+  },
+  {
+    "label": "territorial-authority-2019",
+    "code": "TA2019"
+  },
+  {
+    "label": "ward-2016",
+    "code": "WARD2016"
+  },
+  {
+    "label": "ward-2019",
+    "code": "WARD2019"
+  },
+  {
+    "label": "urban-area-2016",
+    "code": "UA2016"
+  },
+  {
+    "label": "urban-area-2019",
+    "code": "UA2019"
+  },
+  {
+    "label": "statistical-area-unit-2016",
+    "code": "AU2016"
+  },
+  {
+    "label": "statistical-area-unit-2019",
+    "code": "SAU2019"
+  },
+  {
+    "label": "internet-market-rent-2017",
+    "code": "IMR2017"
+  },
+  {
+    "label": "internet-market-rent-2005",
+    "code": "IMR2005"
+  },
+  {
+    "label": "user-defined",
+    "code": "USERDEFINED"
+  },
+  {
+    "label": "AS2017",
+    "code": "AS2017"
+  }
+]
