@@ -127,9 +127,6 @@ Style/TrailingCommaInHashLiteral:
 RSpec/SpecFilePathSuffix:
   Enabled: true
 
-Migration/AddIndexConcurrently:
-  Enabled: true
-
 RSpec:
   Enabled: false
 

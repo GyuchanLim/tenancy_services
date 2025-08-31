@@ -1,5 +1,6 @@
 module Tenancy
   module Statistics
+    # Class to fetch statistics between two dates
     class FetchBetween < ApplicationService
       def initialize(client:, query:)
         @client = client

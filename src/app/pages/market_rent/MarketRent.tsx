@@ -44,7 +44,6 @@ function MarketRent() {
   const mutation = useCallTenancyRegion();
 
   const submit = (e: React.FormEvent) => {
-    console.log(selectedLocation, selectedBedrooms, selectedDwellingType);
     e.preventDefault();
     mutation.mutate({
       selectedLocation,
