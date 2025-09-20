@@ -10,7 +10,7 @@ RSpec.describe Tenancy::Statistics::FetchBetween do
   before do
     # How can I separate this out to a model...?
     stub_request(:get,
-      "https://api.business.govt.nz/gateway/tenancy-services/market-rent/v2/statistics?area-definition=SAU2019&area-labels=Bayview%20West&dwelling-type=House&num-bedrooms=%5B%224%22%5D&num-months=1&period-ending=2025-02")
+                 "https://api.business.govt.nz/gateway/tenancy-services/market-rent/v2/statistics?area-definition=SAU2019&area-labels=Bayview%20West&dwelling-type=House&num-bedrooms=%5B%224%22%5D&num-months=1&period-ending=2025-02")
       .with(
         headers: {
           "Accept": "*/*",
@@ -25,7 +25,6 @@ RSpec.describe Tenancy::Statistics::FetchBetween do
         body: TenancyHelper.default_statistics_response(area, dwell, bedrooms, start_date, end_date),
         headers: {}
       )
-
   end
 
   context "when valid parameters are provided" do

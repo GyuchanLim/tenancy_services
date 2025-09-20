@@ -1,5 +1,4 @@
 class TenancyHelper
-
   # rubocop:disable Metrics/MethodLength
   def self.default_statistics_response(area, dwell, n_bedrooms, start_date, end_date)
     {

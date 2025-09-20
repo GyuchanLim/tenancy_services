@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post "statistics/search", to: "statistics#search"
-      resources :rent, only: [ :index ]
-      resources :region, only: [ :index ] do
+      resources :rent, only: [:index]
+      resources :region, only: [:index] do
         member do
           get :show, to: "region#suburb"
         end
