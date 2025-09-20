@@ -1,10 +1,8 @@
 # This is a ruby script that I sent to ask about a bug where calling a area-labels fails to return data
 # But area-code is successful
-#
-# Makes calls to the Tenancy Market Rent API
 require "httparty"
 
-# Testing script
+# Makes calls to the Tenancy Market Rent API
 class Client
   include HTTParty
 
@@ -30,6 +28,48 @@ class Client
 end
 
 # Statistic params
+statistics_param_hashes = [
+  # This param uses area-labels and fails to fetch data
+  {
+    "area-labels": "Northland Region",
+    "num-bedrooms": "1",
+    "period-ending": "2025-06",
+    "num-months": "12",
+    "area-definition": "REGC2019",
+    "dwelling-type": "House",
+    "statistics": "nLodged, nClosed",
+  },
+  # This param uses area-codes and successfully fetches data
+  {
+    "area-codes": "01",
+    "num-bedrooms": "1",
+    "period-ending": "2025-06",
+    "num-months": "12",
+    "area-definition": "REGC2019",
+    "dwelling-type": "House",
+    "statistics": "nLodged, nClosed",
+  },
+  # This param uses area-labels and successfully fetches data
+  {
+    "area-labels": "Bayview West",
+    "num-bedrooms": "3",
+    "period-ending": "2025-06",
+    "num-months": "12",
+    "area-definition": "SAU2019",
+    "dwelling-type": "House",
+    "statistics": "nLodged, nClosed",
+  },
+  # This param uses area-codes and successfully fetches data
+  {
+    "area-codes": "121400",
+    "num-bedrooms": "3",
+    "period-ending": "2025-06",
+    "num-months": "12",
+    "area-definition": "SAU2019",
+    "dwelling-type": "House",
+    "statistics": "nLodged, nClosed",
+  }
+]
 
 statistics_param_hashes.each do |params|
   results = Client.new.statistics(params)
