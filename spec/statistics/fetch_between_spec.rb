@@ -10,14 +10,14 @@ RSpec.describe Tenancy::Statistics::FetchBetween do
   before do
     # How can I separate this out to a model...?
     stub_request(:get,
-                 "https://api.business.govt.nz/gateway/tenancy-services/market-rent/v2/statistics?area-definition=SAU2019&area-labels=Bayview%20West&dwelling-type=House&num-bedrooms=%5B%224%22%5D&num-months=1&period-ending=2025-02")
+                 "https://api.business.govt.nz/#{ENV['API_ENVIRONMENT']}#{ENV['TENANCY_MARKET_RENT_URI']}/statistics?area-definition=SAU2019&area-labels=Bayview%20West&dwelling-type=House&num-bedrooms=%5B%224%22%5D&num-months=1&period-ending=2025-02")
       .with(
         headers: {
           "Accept": "*/*",
           "Accept-Encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Cache-Control": "no-cache",
           "Content-Type": "application/json",
-          "Ocp-Apim-Subscription-Key": "e4ae044f2b044800b86b8f747e20f903",
+          "Ocp-Apim-Subscription-Key": ENV["TENANCY_MARKET_RENT_PRIMARY_KEY"],
           "User-Agent": "Ruby",
         }
       ).to_return(
