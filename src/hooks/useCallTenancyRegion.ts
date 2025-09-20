@@ -16,13 +16,13 @@ const useCallTenancyRegion = (): UseMutationResult<
   return useMutation<Statistics[], unknown, Statistics>({
     mutationFn: async (data: Statistics) => {
       const response = await fetch(
-        "http://localhost:3000/api/v1/statistic/search",
+        "http://localhost:3000/api/v1/statistics/search",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ statistic: data }),
         },
       );
 
