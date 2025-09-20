@@ -1,27 +1,36 @@
-import { useMutation, UseMutationResult } from '@tanstack/react-query';
+import { useMutation, UseMutationResult } from "@tanstack/react-query";
 
 type Statistics = {
-  location: string;
-  bedrooms: Array<string>;
-  dwellingType: Array<string>;
+  selectedLocation: string;
+  selectedBedrooms: Array<string>;
+  selectedDwellingType: Array<string>;
+  selectedStartDate: string;
+  selectedEndDate: string;
 };
 
-const useCallTenancyRegion = (): UseMutationResult<Statistics[], unknown, Statistics> => {
+const useCallTenancyRegion = (): UseMutationResult<
+  Statistics[],
+  unknown,
+  Statistics
+> => {
   return useMutation<Statistics[], unknown, Statistics>({
     mutationFn: async (data: Statistics) => {
-      const response = await fetch('http://localhost:3000/api/v1/statistic/search', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        "http://localhost:3000/api/v1/statistics/search",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ statistic: data }),
         },
-        body: JSON.stringify(data),
-      });
+      );
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       return response.json();
-    }
+    },
   });
 };
 

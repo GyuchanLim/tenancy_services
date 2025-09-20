@@ -1,30 +1,34 @@
-class Api::V1::RegionController < ApplicationController
-  before_action :fetch_regions, only: [ :index, :suburb ]
+module Api
+  module V1
+    # This is RegionController Method Description
+    class RegionController < ApiController
+      before_action :fetch_regions, only: [:index, :suburb]
 
-  def index
-    render json: { data: fetch_regions.keys }
-  end
+      def index
+        render json: { data: fetch_regions.keys }
+      end
 
-  def suburb
-    region = params[:id]
+      def suburb
+        region = params[:id]
 
-    render json: error_response and return if fetch_regions[region].nil?
-    render json: { data: fetch_regions[region] }
-  end
+        render json: error_response and return if fetch_regions[region].nil?
 
-  private
+        render json: { data: fetch_regions[region] }
+      end
 
-  attr_reader :fetch_regions
+      private
 
-  def fetch_regions
-    @fetch_regions ||= Tenancy::FetchRegions.new.call
-  end
+      def fetch_regions
+        @fetch_regions ||= Tenancy::FetchRegions.new.call
+      end
 
-  def error_response
-    {
-      "404": {
-        "description": "Unable to find results for a given region."
-      }
-    }
+      def error_response
+        {
+          "404": {
+            "description": "Unable to find results for a given region.",
+          },
+        }
+      end
+    end
   end
 end

@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   scan_ruby:
@@ -46,6 +46,13 @@ jobs:
     #    ports:
     #      - 6379:6379
     #    options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      API_ENVIRONMENT: "gateway"
+      OCP_APIM_SUBSCRIPTION_KEY: "OCP_APIM_SUBSCRIPTION_KEY"
+      TENANCY_MARKET_RENT_URI: "tenancy-services/market-rent/v2"
+      TENANCY_MARKET_RENT_PRIMARY_KEY: "TENANCY_MARKET_RENT_PRIMARY_KEY"
+      RAILS_ENV: test
+
     steps:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y build-essential git pkg-config
@@ -63,4 +70,4 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+        run: bin/rails spec

@@ -1,5 +1,6 @@
 module Tenancy
-  class FetchRegions
+  # This class fetches regions from the Tenancy API.
+  class FetchRegions < ApplicationService
     attr_reader :client
 
     def initialize
@@ -11,7 +12,7 @@ module Tenancy
       data = client.area_definitions("IMR2017")
       return error_response unless data.success?
 
-      area_region_hash = format(data["items"])
+      format(data["items"])
     end
 
     private
