@@ -68,7 +68,7 @@ statistics_param_hashes = [
     "area-definition": "SAU2019",
     "dwelling-type": "House",
     "statistics": "nLodged, nClosed",
-  }
+  },
 ]
 
 statistics_param_hashes.each do |params|
