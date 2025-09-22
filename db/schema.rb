@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_20_222508) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_22_090105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -19,5 +19,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_20_222508) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "area_labels", force: :cascade do |t|
+    t.bigint "area_definition_id"
+    t.string "label"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_definition_id"], name: "index_area_labels_on_area_definition_id"
   end
 end
