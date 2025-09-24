@@ -41,7 +41,10 @@ gem "dotenv", groups: [:development, :test]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: [:mri, :windows], require: "debug/prelude"
+  # RSpec related
   gem "rspec-rails", "~> 8.0.0"
+  gem "factory_bot_rails"
+  gem "faker"
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
   gem "webmock"
