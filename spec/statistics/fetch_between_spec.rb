@@ -1,7 +1,7 @@
 require "rails_helper"
 require "tenancy_helper"
 
-RSpec.describe Tenancy::Statistics::FetchBetween do
+RSpec.describe TenancyServices::FetchBetween do
   let(:area) { "Bayview West" }
   let(:dwell) { ["House"] }
   let(:bedrooms) { ["4"] }

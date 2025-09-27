@@ -13,6 +13,6 @@ body = statistic_params_hash.merge({
                                      "statistics": "nLodged, nClosed",
                                    })
 
-result = client.statistic(body)
+result = client.statistics(body)
 
 puts result
