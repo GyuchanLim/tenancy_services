@@ -1,4 +1,4 @@
-module Tenancy
+module TenancyServices
   # This class fetches regions from the Tenancy API.
   class FetchRegions < ApplicationService
     attr_reader :client
