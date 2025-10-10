@@ -19,7 +19,11 @@ RSpec.describe TenancyServices::AreaLabel do
     end
 
     it "successfully creates an area label with all required attributes" do
-      area_label = described_class.new(area_definition: area_definition, label: "regional-council-2019", code: "REGC2019")
+      area_label = described_class.new(
+        area_definition: area_definition,
+        label: "regional-council-2019",
+        code: "REGC2019"
+      )
       expect(area_label).to be_valid
     end
   end
