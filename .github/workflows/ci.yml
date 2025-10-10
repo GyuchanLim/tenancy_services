@@ -40,18 +40,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    # services:
-    #  redis:
-    #    image: redis
-    #    ports:
-    #      - 6379:6379
-    #    options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    services:
+      postgres:
+        image: postgres:15
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: tenancy_services_test
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       API_ENVIRONMENT: "gateway"
       OCP_APIM_SUBSCRIPTION_KEY: "OCP_APIM_SUBSCRIPTION_KEY"
       TENANCY_MARKET_RENT_URI: "tenancy-services/market-rent/v2"
       TENANCY_MARKET_RENT_PRIMARY_KEY: "TENANCY_MARKET_RENT_PRIMARY_KEY"
       RAILS_ENV: test
+      POSTGRES_USER: postgres
+      POSTGRES_PASS: postgres
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
 
     steps:
       - name: Install packages
@@ -66,8 +74,13 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Set up database
+        env:
+          RAILS_ENV: test
+        run: bin/rails db:prepare
+
       - name: Run tests
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails spec
+        run: bundle exec rspec
