@@ -9,18 +9,10 @@ module TenancyServices
     end
 
     def call
-      response = client.area_definitions(area_definition.code)
+      Rails.logger.error("Failed to fetch area labels for #{area_definition.label}") and return unless response.success?
 
-      response["items"].each_slice(100) do |batch|
-        batch.each do |item|
-          TenancyServices::AreaLabel.find_or_create_by(
-            area_definition: area_definition,
-            label: item["label"],
-            code: item["code"]
-          )
-        rescue TenancyServicesApiError => e
-          Rails.logger.error("Error creating area label for area_definition: #{area_definition.label}. #{e.message}")
-        end
+      parsed_response["items"].each_slice(100) do |area_labels|
+        process_area_labels(area_labels)
       end
     end
 
@@ -28,6 +20,26 @@ module TenancyServices
 
     def client
       Api::Tenancy::Client.new
+    end
+
+    def response
+      @response ||= client.area_definitions(area_definition.code)
+    end
+
+    def parsed_response
+      JSON.parse(response.body)
+    end
+
+    def process_area_labels(area_labels)
+      area_labels.each do |item|
+        TenancyServices::AreaLabel.find_or_create_by(
+          area_definition: area_definition,
+          label: item["label"],
+          code: item["code"]
+        )
+      rescue TenancyServicesApiError => e
+        Rails.logger.error("Error creating area label for area_definition: #{area_definition.label}. #{e.message}")
+      end
     end
   end
 end

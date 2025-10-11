@@ -8,12 +8,19 @@ RSpec.describe FetchAreaLabelsJob do
 
   subject { described_class.perform_later(area_definition) }
 
-  before { ActiveJob::Base.queue_adapter = :test }
+  before do
+    ActiveJob::Base.queue_adapter = :test
+
+    allow_any_instance_of(Api::Tenancy::Client).to receive(:area_definitions).and_return(response)
+  end
 
   describe "#perform" do
-    before do
-      allow_any_instance_of(Api::Tenancy::Client).to receive(:area_definitions)
-        .and_return(JSON.parse(TenancyHelper.default_area_definitions_response))
+    let(:response) do
+      instance_double(
+        HTTParty::Response,
+        success?: true,
+        body: TenancyHelper.default_area_definitions_response
+      )
     end
 
     it "queues FetchAreaLabelsJob service" do
