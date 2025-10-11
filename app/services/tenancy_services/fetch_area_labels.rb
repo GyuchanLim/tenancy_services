@@ -2,10 +2,10 @@ module TenancyServices
   # This class fetches area labels from the API.
   # No need to be called multiple times. Same reasons as FetchAreaDefinitions.
   class FetchAreaLabels < ApplicationService
-    attr_reader :area_definition_id
+    attr_reader :area_definition
 
-    def initialize(area_definition_id)
-      @area_definition_id = area_definition_id
+    def initialize(area_definition)
+      @area_definition = area_definition
     end
 
     def call
@@ -28,10 +28,6 @@ module TenancyServices
 
     def client
       Api::Tenancy::Client.new
-    end
-
-    def area_definition
-      TenancyServices::AreaDefinition.find(area_definition_id)
     end
   end
 end

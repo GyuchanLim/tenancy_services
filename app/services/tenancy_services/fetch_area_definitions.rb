@@ -9,7 +9,7 @@ module TenancyServices
       response["items"].each do |item|
         area_definition = TenancyServices::AreaDefinition.create(label: item["label"], code: item["code"])
 
-        FetchAreaLabelsJob.perform_later(area_definition.id) if area_definition.save
+        FetchAreaLabelsJob.perform_later(area_definition) if area_definition.save
       end
     end
 

@@ -3,6 +3,6 @@ class FetchAreaLabelsJob < ApplicationJob
   queue_as :default
 
   def perform(area_definition)
-    TenancyServices::FetchAreaLabels.new(area_definition).call
+    TenancyServices::FetchAreaLabels.call(area_definition)
   end
 end
