@@ -17,10 +17,10 @@ module Api
         }
       end
 
-      def area_definitions(area = nil)
-        return self.class.get("#{@uri}/area-definitions", headers: @auth) if area.nil?
+      def area_definitions(area_code = nil)
+        return self.class.get("#{@uri}/area-definitions", headers: @auth) if area_code.nil?
 
-        self.class.get("#{@uri}/area-definitions/#{area}", headers: @auth)
+        self.class.get("#{@uri}/area-definitions/#{area_code}", headers: @auth)
       end
 
       def statistics(query)

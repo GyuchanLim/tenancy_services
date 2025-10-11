@@ -25,7 +25,7 @@ class TenancyHelper
     }.to_json
   end
 
-  def self.default_area_definitions_response(_area = nil)
+  def self.default_area_definitions_response(_area_code = nil)
     { "tableName": "REGC2016",
       "items":
       [
@@ -50,4 +50,13 @@ class TenancyHelper
   end
 
   # rubocop:enable Metrics/MethodLength
+
+  def self.custom_area_definitions_response(area_code)
+    { "tableName": area_code,
+      "items":
+      [
+        { "label": "Northland Region", "code": "1" },
+        { "label": "West Coast Region", "code": "12" },
+      ],  }.to_json
+  end
 end
