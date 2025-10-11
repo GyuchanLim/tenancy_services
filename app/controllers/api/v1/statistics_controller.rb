@@ -4,7 +4,7 @@ module Api
     class StatisticsController < ApiController
       def search
         # NO BUSINESS LOGIC IN CONTROLLERS.
-        render json: { data: ::Tenancy::Statistics::FetchBetween.call(params) }
+        render json: { data: ::TenancyServices::FetchBetween.call(params) }
       end
     end
   end

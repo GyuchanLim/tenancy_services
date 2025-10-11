@@ -2,8 +2,8 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 2.1"
+# Use postgresql as database
+gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
@@ -41,7 +41,10 @@ gem "dotenv", groups: [:development, :test]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: [:mri, :windows], require: "debug/prelude"
+  # RSpec related
   gem "rspec-rails", "~> 8.0.0"
+  gem "factory_bot_rails"
+  gem "faker"
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
   gem "webmock"
