@@ -6,9 +6,9 @@ module TenancyServices
       Rails.logger.error("Failed to fetch area definitions") and return unless response.success?
 
       parsed_response["items"].each do |item|
-        area_definition = TenancyServices::AreaDefinition.create(label: item["label"], code: item["code"])
+        area_definition = TenancyServices::AreaDefinition.find_or_create_by(label: item["label"], code: item["code"])
 
-        FetchAreaLabelsJob.perform_later(area_definition) if area_definition.save
+        FetchAreaLabelsJob.perform_now(area_definition) if area_definition.save
       rescue TenancyServicesApiError => e
         Rails.logger.error("Error creating area label for area_definition: #{area_definition.label}. #{e.message}")
       end
