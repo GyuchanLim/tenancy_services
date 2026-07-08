@@ -1,18 +1,24 @@
-import React from "react";
+import { Box } from "@chakra-ui/react";
 
 interface ContainerProps {
   children: React.ReactNode;
+  as?: "div" | "nav" | "footer";
   className?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, className = "" }) => {
+const Container: React.FC<ContainerProps> = ({
+  children,
+  as = "div",
+  className = "",
+}) => {
   return (
-    <div
+    <Box
       id="container"
-      className={`max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 bg-white rounded-lg ${className}`}
+      as={as}
+      className={`max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 ${className}`}
     >
       {children}
-    </div>
+    </Box>
   );
 };
 
