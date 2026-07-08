@@ -8,8 +8,12 @@ import {
   dwellingTypeAtom,
   startDateAtom,
   endDateAtom,
-} from "@components/tenancy/searchParamsAtoms";
-import { MultiSelectField, InputField, DateField } from "./FormFields";
+} from "@atoms/tenancy/searchParamsAtoms";
+import {
+  MultiSelectField,
+  InputField,
+  DateField,
+} from "../../../components/tenancy/FormFields";
 
 function MarketRent() {
   const [selectedLocation, setSelectedLocation] = useAtom(locationAtom);

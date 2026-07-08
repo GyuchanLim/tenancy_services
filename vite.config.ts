@@ -14,6 +14,7 @@ export default defineConfig({
       '@components': '/src/components/',
       '@stylesheets': '/src/stylesheets/',
       "@pages": '/src/app/pages/',
+      '@atoms': '/src/app/atoms/',
     },
   },
   server: {

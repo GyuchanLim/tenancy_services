@@ -10,6 +10,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/app/pages/*"],
+      "@atoms/*": ["./src/app/atoms/*"],
     },
 
     /* Bundler mode */
