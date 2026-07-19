@@ -10,6 +10,8 @@ import {
   startDateAtom,
   endDateAtom,
 } from "@atoms/tenancy/searchParamsAtoms";
+import { Header } from "@components/Header";
+
 
 const bedroomOptions = ["1", "2", "3", "4", "5+"];
 const dwellingTypeOptions = [
@@ -97,16 +99,11 @@ function MarketRent() {
     <Container>
       <Box as="section" className="space-y-10">
         <Box className="max-w-3xl space-y-4">
-          <p className="text-sm font-mono font-semibold uppercase tracking-normal text-gray-500">
-            Market rent search
-          </p>
-          <h1 className="text-4xl font-serif font-semibold text-gray-900">
-            Search New Zealand market rent information.
-          </h1>
-          <p className="text-lg font-mono leading-7 text-gray-600">
-            Filter location, bedrooms, dwelling type, and month range using
-            official MBIE tenancy data.
-          </p>
+          <Header
+            pageName="Market rent search"
+            title="Search New Zealand market rent information."
+            description="Filter location, bedrooms, dwelling type, and month range using official MBIE tenancy data."
+          />
         </Box>
 
         <Box className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)]">

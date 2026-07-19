@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import clsx from "clsx";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -15,7 +16,10 @@ const Container: React.FC<ContainerProps> = ({
     <Box
       id="container"
       as={as}
-      className={`max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 ${className}`}
+      className={clsx("max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8", {
+        "py-0 sm:py-0": as === "div",
+        className
+      })}
     >
       {children}
     </Box>

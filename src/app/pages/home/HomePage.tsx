@@ -1,5 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { Container } from "@components/layout";
+import FeatureBoxes from "@components/FeatureBoxes";
+import { Header } from "@components/Header";
 
 const features = [
   {
@@ -21,43 +23,21 @@ const features = [
 
 function HomePage() {
   return (
-    <Container className="py-0 sm:py-0">
+    <Container>
       <Box as="section" className="space-y-10 py-0">
-        <Box className="max-w-3xl space-y-4">
-          <p className="text-sm font-mono font-semibold uppercase tracking-wide text-gray-500">
-            NZ tenancy data
-          </p>
-          <h1 className="text-4xl font-serif font-semibold text-gray-900">
-            Find market rent data faster.
-          </h1>
-          <p className="text-lg font-mono text-gray-600">
-            Search New Zealand market rent information using clear filters
-            backed by official MBIE tenancy data.
-          </p>
-          <a
-            href="/market_rent"
-            className="inline-flex rounded-sm bg-gray-900 px-4 py-2 font-mono font-medium text-white hover:bg-gray-700"
-          >
-            Search market rent
-          </a>
-        </Box>
+        <Header
+          pageName="NZ tenancy data"
+          title="Find market rent data faster."
+          description="Search New Zealand market rent information using clear filters backed by official MBIE tenancy data."
+        />
+        <a
+          href="/market_rent"
+          className="inline-flex rounded-sm bg-gray-900 px-4 py-2 font-mono font-medium text-white hover:bg-gray-700"
+        >
+          Search market rent
+        </a>
 
-        <Box className="grid gap-4 md:grid-cols-3">
-          {features.map((feature) => (
-            <Box
-              as="article"
-              key={feature.title}
-              className="rounded-sm border border-gray-200 p-5"
-            >
-              <h2 className="text-lg font-serif font-semibold text-gray-900">
-                {feature.title}
-              </h2>
-              <p className="mt-2 text-sm font-mono leading-6 text-gray-600">
-                {feature.description}
-              </p>
-            </Box>
-          ))}
-        </Box>
+        <FeatureBoxes features={features} />
       </Box>
     </Container>
   );
