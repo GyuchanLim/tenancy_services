@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { Container } from "@components/layout";
 import FeatureBoxes from "@components/FeatureBoxes";
 import { Header } from "@components/Header";
@@ -30,12 +30,9 @@ function HomePage() {
           title="Find market rent data faster."
           description="Search New Zealand market rent information using clear filters backed by official MBIE tenancy data."
         />
-        <a
-          href="/market_rent"
-          className="inline-flex rounded-sm bg-gray-900 px-4 py-2 font-mono font-medium text-white hover:bg-gray-700"
-        >
-          Search market rent
-        </a>
+        <Button variant="primary" asChild>
+          <a href="/market_rent">Search market rent</a>
+        </Button>
 
         <FeatureBoxes features={features} />
       </Box>

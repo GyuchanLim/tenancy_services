@@ -98,13 +98,11 @@ function MarketRent() {
   return (
     <Container>
       <Box as="section" className="space-y-10">
-        <Box className="max-w-3xl space-y-4">
-          <Header
-            pageName="Market rent search"
-            title="Search New Zealand market rent information."
-            description="Filter location, bedrooms, dwelling type, and month range using official MBIE tenancy data."
-          />
-        </Box>
+        <Header
+          pageName="Market rent search"
+          title="Search New Zealand market rent information."
+          description="Filter location, bedrooms, dwelling type, and month range using official MBIE tenancy data."
+        />
 
         <Box className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(280px,1fr)]">
           <Box
