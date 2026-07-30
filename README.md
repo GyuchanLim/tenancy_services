@@ -71,6 +71,9 @@ rails db:migrate:status
 
 **Install npm and packages**
 ```
+# Install nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
+
 sudo apt install npm
 npm install
 ```

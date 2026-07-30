@@ -8,12 +8,37 @@ type Statistics = {
   selectedEndDate: string;
 };
 
+type MarketRentResult = {
+  area: string;
+  dwell: string;
+  nBedrms: string;
+  nLodged: number;
+  nClosed: number;
+  nCurr: number | null;
+  mean: number | null;
+  lq: number | null;
+  med: number | null;
+  uq: number | null;
+  sd: number | null;
+  brr: number | null;
+  lmean: number | null;
+  lsd: number | null;
+  slq: number | null;
+  suq: number | null;
+};
+
+type MarketRentResponse = {
+  data?: {
+    items?: MarketRentResult[];
+  };
+};
+
 const useCallTenancyRegion = (): UseMutationResult<
-  Statistics[],
+  MarketRentResult[],
   unknown,
   Statistics
 > => {
-  return useMutation<Statistics[], unknown, Statistics>({
+  return useMutation<MarketRentResult[], unknown, Statistics>({
     mutationFn: async (data: Statistics) => {
       const response = await fetch(
         "http://localhost:3000/api/v1/statistics/search",
@@ -29,7 +54,8 @@ const useCallTenancyRegion = (): UseMutationResult<
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      return response.json();
+      const responseBody = (await response.json()) as MarketRentResponse;
+      return responseBody.data?.items ?? [];
     },
   });
 };

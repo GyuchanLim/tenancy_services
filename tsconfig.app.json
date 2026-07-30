@@ -9,7 +9,8 @@
     "paths": {
       "@hooks/*": ["./src/hooks/*"],
       "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/app/pages/*"]
+      "@pages/*": ["./src/app/pages/*"],
+      "@atoms/*": ["./src/app/atoms/*"],
     },
 
     /* Bundler mode */
@@ -25,7 +26,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
   },
-  "include": ["src"]
+  "include": ["src"],
 }
