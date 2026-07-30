@@ -31,5 +31,5 @@ production:
   primary:
     <<: *default
     database: tenancy_services_production
-    username: TenancyServices
-    password: <%= ENV.fetch("POSTGRES_DATABASE_PASSWORD", "password") %>
+    username: <%= ENV.fetch("POSTGRES_USER") %>
+    password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
