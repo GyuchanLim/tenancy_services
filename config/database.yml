@@ -22,8 +22,18 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: tenancy_services_test
+  primary:
+    <<: *default
+    database: tenancy_services_test
+  cable:
+    <<: *default
+    database: tenancy_services_test
+  cache:
+    <<: *default
+    database: tenancy_services_test
+  queue:
+    <<: *default
+    database: tenancy_services_test
 
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
