@@ -33,3 +33,18 @@ production:
     database: tenancy_services_production
     username: <%= ENV.fetch("POSTGRES_USER") %>
     password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  cable:
+    <<: *default
+    database: tenancy_services_production
+    username: <%= ENV.fetch("POSTGRES_USER") %>
+    password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  cache:
+    <<: *default
+    database: tenancy_services_production
+    username: <%= ENV.fetch("POSTGRES_USER") %>
+    password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
+  queue:
+    <<: *default
+    database: tenancy_services_production
+    username: <%= ENV.fetch("POSTGRES_USER") %>
+    password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
