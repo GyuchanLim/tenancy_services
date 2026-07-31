@@ -16,6 +16,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root "frontend#index"
+  get "/market_rent", to: "frontend#index"
 end
