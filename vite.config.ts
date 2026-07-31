@@ -22,6 +22,9 @@ export default defineConfig({
       // the origin you will be accessing via browser
       origin: 'localhost:3000',
     },
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
   build: {
     // generate .vite/manifest.json in outDir
